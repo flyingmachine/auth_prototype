@@ -1,0 +1,5 @@
+= form_tag sessions_path do
+  %ul
+    %li= text_field_tag :login_id, params[:login_id]
+    %li= password_field_tag :password
+    %li= submit_tag
