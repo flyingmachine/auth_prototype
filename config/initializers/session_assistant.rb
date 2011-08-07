@@ -15,7 +15,8 @@ SessionAssistant::RequiredActions.add(:require_tos_acceptance) do |r|
   r.requirements   { current_user.terms_of_service_accepted }
   r.to_perform     { redirect_to url_for(:controller => "policies", :action => "tos") }
   r.except =       {
-    "policies" =>  ["tos"]
+    "policies" =>  "tos",
+    "users"    =>  "reset"
   }
 end
 
@@ -24,6 +25,7 @@ SessionAssistant::RequiredActions.add(:redirect_if_password_change_required) do 
   r.requirements   { !current_user.password_change_required }
   r.to_perform     { redirect_to url_for(:controller => "policies", :action => "change_password") }
   r.except =       {
-    "policies" =>  ["change_password"]
+    "policies" =>  "change_password",
+    "users"    =>  "reset"
   }
 end

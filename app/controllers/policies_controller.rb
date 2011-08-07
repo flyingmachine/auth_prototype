@@ -11,7 +11,7 @@ class PoliciesController < ApplicationController
   
   def change_password
     if request.post?
-      current_user.password_change_required = true
+      current_user.password_change_required = false
       current_user.save
       redirect_to marked_location
     else
