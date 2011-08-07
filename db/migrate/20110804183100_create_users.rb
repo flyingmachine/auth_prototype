@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :login_id
       t.string :password
-      t.boolean :terms_of_service_accepted, :default => true
+      t.boolean :terms_of_service_accepted, :default => false
       t.boolean :password_change_required, :default => true
       t.timestamps
     end

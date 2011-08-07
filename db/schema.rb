@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(:version => 20110804183100) do
   create_table "users", :force => true do |t|
     t.string   "login_id"
     t.string   "password"
+    t.boolean  "terms_of_service_accepted", :default => false
+    t.boolean  "password_change_required",  :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
