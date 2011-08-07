@@ -1,6 +1,10 @@
 AuthPrototype::Application.routes.draw do
   resources :sessions
-  resources :users
+  resources :users do
+    member do
+      get 'reset'
+    end
+  end
   resource  :quotes
   
   # handles policies

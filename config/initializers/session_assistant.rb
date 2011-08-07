@@ -1,4 +1,4 @@
-ApplicationController.class_eval do
+ActionController::Base.class_eval do
   use SessionAssistant::Rack
 end
 
@@ -10,12 +10,12 @@ SessionAssistant::RequiredActions.add(:log_in) do |r|
   }
 end
 
-SessionAssistant::RequiredActions.add(:require_toc_acceptance) do |r|
+SessionAssistant::RequiredActions.add(:require_tos_acceptance) do |r|
   r.preconditions  { logged_in? }
   r.requirements   { current_user.terms_of_service_accepted }
-  r.to_perform     { redirect_to url_for(:controller => "policies", :action => "toc") }
+  r.to_perform     { redirect_to url_for(:controller => "policies", :action => "tos") }
   r.except =       {
-    "policies" =>  ["toc"]
+    "policies" =>  ["tos"]
   }
 end
 
