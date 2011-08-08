@@ -1,6 +1,6 @@
 class QuotesController < ApplicationController
   def show
-    render :text => Quote.random
+    @quote = Quote.random
   end
   
 end

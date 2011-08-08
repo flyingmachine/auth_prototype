@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %title Auth Prototype
+  
+  %body
+    %div
+      = link_to "quotes", quotes_path
+      &bull;
+      = link_to "reset user", reset_user_path(:id => 1)
+    = yield
